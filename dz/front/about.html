@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .countainer {
+            width: 1920px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0px auto;
+        }
+
+        * {
+            text-decoration: none;
+        }
+
+        .header {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 100px auto;
+            margin-top: 100px;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 90px;
+            margin-bottom: 70px;
+            font-weight: 600;
+        }
+
+        .text_yellow {
+            color: #FFC700;
+        }
+
+        .text {
+            color: #A5A5B4;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0px auto;
+        }
+
+        .block_items {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .block_text_yellow {
+            color: #FFC700;
+            font-weight: 900;
+        }
+
+        .block_text {
+            font-weight: 900;
+        }
+
+        .block_for_today {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .block_for_tomorrow {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .block_for_later {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .today,
+        .tomorrow,
+        .later {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .box {
+            width: 629px;
+            height: 123px;
+            background: #F0F0F0;
+            border-radius: 15px;
+            padding: 21px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .box_left {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .box_right {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .p {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .span {
+            font-weight: 500;
+            color: #A5A5B4;
+        }
+
+        .today_length {
+            font-weight: 600;
+        }
+
+        .span1 {
+            font-weight: 18;
+            font-weight: 900;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="countainer">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"><span class="text">HOMEPAGE</span></a>
+                    <a href="./about.html"><span class="text_yellow">ONLY TODAY</span></a>
+                </div>
+                <h1>HI, YOU HAVE <i class="all_tasks">25</i> UNDONE TASKS</h1>
+            </header>
+            <main class="main">
+                <div class="main_logo">
+                    <h1>ALL TODOS</h1>
+                </div>
+                <div class="block_items">
+                    <div class="block_for_today">
+                        <div class="block_text_yellow">
+                            <span>FOR TODAY - <i class="today_length">5</i> </span>
+                        </div>
+                        <div class="today"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        import { http } from './js/module.js'
+let data = http
+data = JSON.parse(localStorage.getItem('todos'))
+
+let today = document.querySelector('.today')
+
+let arr_today = []
+let today_length = document.querySelector('.today_length')
+let all_tasks = document.querySelector('.all_tasks')
+
+
+
+
+
+function reload(arr) {
+    localStorage.setItem('todos', JSON.stringify(arr))
+    today.innerHTML = ""
+    for(let item of arr) {
+        all_tasks.innerHTML = arr.length
+        let box = document.createElement('div')
+        let box_left = document.createElement('div')
+        let box_right = document.createElement('div')
+        let input = document.createElement('input')
+        let p = document.createElement('p')
+        let span = document.createElement('span')
+        let span1 = document.createElement('span')
+
+        input.setAttribute('type', 'checkbox')
+        box.classList.add('box')
+        box_left.classList.add('box_left')
+        box_right.classList.add('box_right')
+        p.classList.add('p')
+        span.classList.add('span')
+        span1.classList.add('span1')
+        
+        p.innerHTML = 'Buy S Plaid!'
+        span.innerHTML = item.title
+
+        if(item.completed === true) {
+            input.checked = true
+        }
+
+        input.onchange = () => {
+            input.checked
+            localStorage.setItem('todos', JSON.stringify(arr))
+        }
+
+
+        if(item.left < 1) {
+            arr_today.push(item)
+            today.append(box)
+            today_length.innerHTML = arr_today.length
+            span1.innerHTML = "Today"
+        }
+        
+
+        box.append(box_left, box_right)
+        box_left.append(input)
+        box_right.append(p, span, span1)
+    }
+}
+
+reload(data)
+        
+    </script>
+</body>
+
+</html>

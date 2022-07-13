@@ -1,0 +1,157 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.countainer {
+  width: 1920px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+}
+
+* {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px auto;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  margin-bottom: 70px;
+  font-weight: 600;
+}
+
+.text_yellow {
+  color: #FFC700;
+}
+
+.text {
+  color: #A5A5B4;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px auto;
+}
+
+.block_items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.block_text_yellow {
+  color: #FFC700;
+  font-weight: 900;
+}
+
+.block_text {
+  font-weight: 900;
+}
+
+.block_for_today {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.block_for_tomorrow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.block_for_later {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.today,
+.tomorrow,
+.later {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.box {
+  width: 629px;
+  height: 123px;
+  background: #F0F0F0;
+  border-radius: 15px;
+  padding: 21px;
+  display: flex;
+  gap: 10px;
+}
+
+.box_left {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.box_right {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.p {
+  font-weight: 700;
+  color: #000000;
+}
+
+.span {
+  font-weight: 500;
+  color: #A5A5B4;
+}
+
+.today_length {
+  font-weight: 600;
+}
+
+.span1 {
+  font-weight: 18;
+  font-weight: 900;
+}
